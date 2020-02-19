@@ -24,10 +24,9 @@ module.exports = merge(common, {
     },
     watch: true,
     plugins: [
-        // HotModuleReplacementPlugin: nó giúp tạo ra server riêng tự động reload khi có bất kỳ thay đổi nào từ các file hệ client của project/
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            title: 'Webpack React Example',
+            title: 'GoChat Material UI',
             inject: false,
             template: require('html-webpack-template'),
             meta: [{

@@ -20,14 +20,14 @@ module.exports = merge(common, {
     plugins: [
         // nó sẽ clean thư mục`dist/js & dist/css` trước khi build 
         new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns: ['dist/js', 'dist/css'],
+            cleanOnceBeforeBuildPatterns: ['dist/bundle'],
         }),
         // nó sẽ minify file css
         new MiniCssExtractPlugin({
             filename: "css/index.css"
         }),
         new HtmlWebpackPlugin({
-            title: 'Webpack React Example',
+            title: 'GoChat Material UI',
             inject: false,
             template: require('html-webpack-template'),
             meta: [{
