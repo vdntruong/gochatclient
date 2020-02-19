@@ -4,7 +4,14 @@
   "description": "## Cloning a Project with Submodules $ git clone https://github.com/vdntruong/gochat",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src/**/*.js",
+    "fix": "npm run lint -- --fix",
+    "clean": "rimraf ../web/dist/js/*",
+    "build:dev": "npm run clean && npm run lint && npm run fix && webpack --env dev --progress --profile --colors",
+    "build:prod": "npm run clean && npm run lint && npm run fix && webpack --env prod --progress --profile --colors",
+    "build": "npm run build:dev",
+    "watch": "npm run clean && npm run lint && npm run fix && webpack --env dev --progress --profile --colors -w"
   },
   "keywords": [],
   "author": "",
