@@ -1,7 +1,8 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const common = require('./webpack.common');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpackTemplate = require('html-webpack-template');
+const common = require('./webpack.common');
 
 module.exports = merge(common, {
   mode: 'development',
@@ -28,7 +29,7 @@ module.exports = merge(common, {
     new HtmlWebpackPlugin({
       title: 'GoChat Material UI',
       inject: false,
-      template: require('html-webpack-template'),
+      template: webpackTemplate,
       meta: [{
         name: 'description',
         content: 'A better default template for html-webpack-plugin.'

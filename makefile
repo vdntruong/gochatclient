@@ -2,6 +2,7 @@ MSG='push to HEAD master'
 
 .SILENT:
 
+# make pushmaster -e MSG="..."
 pushmaster:
 	git status ;\
 	git add . ;\

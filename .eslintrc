@@ -1,16 +1,12 @@
 {
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ],
-  "plugins": [
-    "react"
-  ],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "airbnb", "prettier"],
+  "plugins": ["react"],
   "settings": {
     "react": {
       "version": "16.12.0"
     }
   },
+  "parser": "babel-eslint",
   "parserOptions": {
     "sourceType": "module",
     "ecmaFeatures": {
@@ -20,10 +16,16 @@
   "env": {
     "browser": true,
     "node": true,
+    "jest": true,
     "es6": true
   },
   "rules": {
     "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error"
+    "react/jsx-uses-vars": "error",
+    "prefer-promise-reject-errors": ["off"],
+    "react/jsx-filename-extension": ["off"],
+    "react/prop-types": ["warn"],
+    "no-return-assign": ["off"],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   }
 }
