@@ -1,19 +1,19 @@
 {
   "name": "gochatclient",
   "version": "1.0.0",
-  "description": "## Cloning a Project with Submodules $ git clone https://github.com/vdntruong/gochat",
+  "description": "## Cloning a Project with Sub modules $ git clone https://github.com/vdntruong/gochatclient",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src/**/*.js",
     "fix": "yarn lint --fix",
-    "clean": "rimraf ../web/dist/bundle",
-    "build:dev": "yarn clean && yarn lint && yarn fix && webpack --env dev --progress --profile --colors",
-    "build:prod": "yarn clean && yarn lint && yarn fix && webpack --env prod --progress --profile --colors",
-    "build": "yarn build:dev",
+    "clean": "rimraf ../web/public/js/bundle.js",
+    "pakpak": "yarn clean && yarn lint && yarn fix && webpack --mode=none --env common --progress --profile --colors",
+    "pakwatch": "yarn clean && yarn lint && yarn fix && webpack --mode=none --env common --progress --profile --colors -w",
+    "build": "yarn clean && yarn lint && yarn fix && webpack --env dev --progress --profile --colors",
     "watch": "yarn clean && yarn lint && yarn fix && webpack --env dev --progress --profile --colors -w",
-    "zip": "yarn pack",
-    "pakpak": "yarn clean && yarn lint && yarn fix && webpack --mode=none --env common --progress --profile --colors"
+    "build:prod": "yarn clean && yarn lint && yarn fix && webpack --env prod --progress --profile --colors",
+    "zip": "yarn pack"
   },
   "keywords": [],
   "author": "",
