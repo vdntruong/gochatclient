@@ -1,5 +1,9 @@
+MSG='push to HEAD master'
+
 .SILENT:
-all: 
- git add .
- git commit -m ""
- git push origin HEAD:master
+
+pushmaster:
+	git status ;\
+	git add . ;\
+	git commit -m "$(MSG)" ;\
+	git push origin HEAD:master ;\
