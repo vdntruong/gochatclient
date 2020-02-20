@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Main from './layouts/main';
+import './utils/gochat';
 
-const root = document.getElementById('root');
-ReactDOM.render(<Main />, root);
+ReactDOM.render(<Main />, document.getElementById('root'));
