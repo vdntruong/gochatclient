@@ -5,15 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint src/**/*.js",
-    "fix": "yarn lint --fix",
+    "zip": "yarn pack",
+    "lint": "eslint src/",
+    "prettier": "yarn prettier --write src/**/*.{js,jsx}",
+    "fix": "yarn lint --fix src/",
+    "fixes": "yarn eslint --fix src/",
     "clean": "rimraf ../web/public/js/bundle.js",
-    "pakpak": "yarn clean && yarn lint && yarn fix && webpack --mode=none --env common --progress --profile --colors",
-    "pakwatch": "yarn clean && yarn lint && yarn fix && webpack --mode=none --env common --progress --profile --colors -w",
-    "build": "yarn clean && yarn lint && yarn fix && webpack --env dev --progress --profile --colors",
-    "watch": "yarn clean && yarn lint && yarn fix && webpack --env dev --progress --profile --colors -w",
-    "build:prod": "yarn clean && yarn lint && yarn fix && webpack --env prod --progress --profile --colors",
-    "zip": "yarn pack"
+    "pakpak": "yarn clean && yarn lint && yarn prettier && yarn fix && webpack --mode=none --env common --progress --profile --colors",
+    "pakwatch": "yarn clean && yarn lint && yarn prettier && yarn fix && webpack --mode=none --env common --progress --profile --colors -w",
+    "build": "yarn clean && yarn lint && yarn prettier && yarn fix && webpack --env dev --progress --profile --colors",
+    "watch": "yarn clean && yarn lint && yarn prettier && yarn fix && webpack --env dev --progress --profile --colors -w",
+    "build:prod": "yarn clean && yarn lint yarn prettier && && yarn fix && webpack --env prod --progress --profile --colors"
   },
   "keywords": [],
   "author": "",
@@ -42,6 +44,8 @@
     "eslint-plugin-react": "^7.18.3",
     "html-webpack-plugin": "^3.2.0",
     "html-webpack-template": "^6.2.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.7",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
     "prettier": "^1.19.1",
@@ -54,5 +58,17 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3",
     "webpack-merge": "^4.2.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "eslint",
+      "pretty-quick — staged",
+      "git add"
+    ]
   }
 }
